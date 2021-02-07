@@ -1,6 +1,6 @@
 <template>
   <!-- {/* 数据详情 Starts */} -->
-    <div class="card" v-if="!selectedResource?.id">
+    <div class="card" v-if="!selectedResource?._id">
       暂无数据。。。
     </div>
     <div class="card" v-else>

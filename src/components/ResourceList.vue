@@ -3,7 +3,7 @@
   <ul class="list-group mb-3 resource-list">
     <li
       v-for="resource in resources"
-      :key="resource.id"
+      :key="resource._id"
       :class="`${handleItemClass(resource)} list-group-item d-flex justify-content-between lh-condensed resource-list-item`"
       @click="handleResource(resource)"
     >
@@ -19,6 +19,7 @@
 
 <script>
 import { computed } from "vue";
+
 export default {
   props: {
     resources: {
@@ -32,8 +33,9 @@ export default {
       // 注册事件
       context.emit("handleItemClick", resource)
     }
+    
     const handleItemClass = computed(() => {
-      return (resource) => resource.id === props.activeResource ? "is-active" : "";
+      return (resource) => resource._id === props.activeResource ? "is-active" : "";
     })
     return { handleResource, handleItemClass }
   }
